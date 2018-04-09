@@ -4,7 +4,7 @@ var bodyParser = require( 'body-parser' );
 // var nodeMailer = require('nodemailer');
 
 var app = express();
-var port = 3000;
+var port = 8080;
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
