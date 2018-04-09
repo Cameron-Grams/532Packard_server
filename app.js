@@ -20,7 +20,7 @@ app.get( '/', ( req, res ) => {
 })
 
 app.post( '/contact', ( req, res ) => {
-    const response = `Boagrius says: ${ req.body.message }`; 
+    const response = `Joanna says: ${ req.body.message }`; 
     res.json( { message: response } ); 
 } );
 
