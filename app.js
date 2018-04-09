@@ -25,11 +25,7 @@ app.get( '/', ( req, res ) => {
 app.post( '/contact', ( req, res ) => {
     // send some mail
     console.log( '[app ] in contact endpoint' ); 
-    transporter.sendMail( mailer(),
-    (err, info) => {
-        console.log(info.envelope);
-        console.log(info.messageId);
-    });
+    mailer.sendTestEmail();
     res.send( "cleared the endpoint" );
 } );
 

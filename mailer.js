@@ -1,7 +1,7 @@
 let nodemailer = require('nodemailer');
 let aws = require('aws-sdk');
 // configure AWS SDK
-aws.config.loadFromPath( './config.json' );
+aws.config.loadFromPath('./config.json');
 
 // create Nodemailer SES transporter
 let transporter = nodemailer.createTransport({
@@ -11,7 +11,8 @@ let transporter = nodemailer.createTransport({
 });
 
 // send some mail
-const mailer = transporter.sendMail({
+const mailer = {
+    sendTestEmail: () => transporter.sendMail({
     from: '532Packard@gmail.com',
     to: 'cameron.grams.2@gmail.com',
     subject: 'Message',
@@ -22,10 +23,11 @@ const mailer = transporter.sendMail({
             Value: 'tag value'
         }]
     }
-}, (err, info) => {
-    console.log(info.envelope);
-    console.log(info.messageId);
-});
+    }, (err, info) => {
+        console.log(info.envelope);
+        console.log(info.messageId);
+    })
+};
 
 
 
