@@ -1,10 +1,14 @@
-var express = require( 'express' );
-var bodyParser = require( 'body-parser' ); 
+require('dotenv').config();
+const express = require( 'express' );
+const bodyParser = require( 'body-parser' ); 
 // var path = require('path');
 // var nodeMailer = require('nodemailer');
+const { mailer } = require( './mailer' ); 
 
-var app = express();
-var port = 8080;
+const app = express();
+const port = 8080;
+
+
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,8 +24,15 @@ app.get( '/', ( req, res ) => {
 })
 
 app.post( '/contact', ( req, res ) => {
+<<<<<<< HEAD
     const response = `Joanna says: ${ req.body.message }`; 
     res.json( { message: response } ); 
+=======
+    // send some mail
+    console.log( '[app ] in contact endpoint' ); 
+    mailer.sendTestEmail();
+    res.send( "cleared the endpoint" );
+>>>>>>> mailbranch
 } );
 
 
