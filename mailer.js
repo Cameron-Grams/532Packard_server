@@ -16,16 +16,10 @@ const mailer = {
     from: '532Packard@gmail.com',
     to: 'cameron.grams.2@gmail.com',
     subject: 'Message',
-    text: 'I hope this message gets sent!',
-    ses: { // optional extra arguments for SendRawEmail
-        Tags: [{
-            Name: 'tag name',
-            Value: 'tag value'
-        }]
-    }
-    }, (err, info) => {
-        console.log(info.envelope);
-        console.log(info.messageId);
+    text: 'second config!'
+    }, ( err, info ) => {
+        console.log( "Information from response ", info.envelope );
+        console.log( "Error from response: ", err );
     })
 };
 
