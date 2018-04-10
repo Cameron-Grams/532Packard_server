@@ -1,1 +1,3 @@
-{ "region": "email.us-east-1.amazonaws.com" }
+{ 
+    "region": "email.us-east-1.amazonaws.com"
+}
