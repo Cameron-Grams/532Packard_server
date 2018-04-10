@@ -1,14 +1,19 @@
-let nodemailer = require('nodemailer');
 let aws = require('aws-sdk');
+let nodemailer = require('nodemailer');
+let ses = require( "nodemailer-ses-transport" );
 // configure AWS SDK
-aws.config.loadFromPath('./config.json');
+// aws.config.loadFromPath('./config.json');
 
-// create Nodemailer SES transporter
-let transporter = nodemailer.createTransport({
-    SES: new aws.SES({
-        apiVersion: '2010-12-01'
-    })
-});
+var transporter = nodemailer.createTransport(ses({
+    accessKeyId: 'AKIAJOBUSCS5TCZEWPZQ',
+    secretAccessKey: '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' 
+}));
+
+
+
+
+
+
 
 // send some mail
 const mailer = {
@@ -16,7 +21,7 @@ const mailer = {
     from: '532Packard@gmail.com',
     to: 'cameron.grams.2@gmail.com',
     subject: 'Message',
-    text: 'I hope this message gets sent!',
+    text: 'NEW MESSAGE!!!!',
     ses: { // optional extra arguments for SendRawEmail
         Tags: [{
             Name: 'tag name',
