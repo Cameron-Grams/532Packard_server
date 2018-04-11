@@ -1,8 +1,6 @@
 require('dotenv').config();
 const express = require( 'express' );
 const bodyParser = require( 'body-parser' ); 
-// var path = require('path');
-// var nodeMailer = require('nodemailer');
 const { mailer } = require( './mailer' ); 
 
 const app = express();
@@ -24,15 +22,9 @@ app.get( '/', ( req, res ) => {
 })
 
 app.post( '/contact', ( req, res ) => {
-<<<<<<< HEAD
-    const response = `Joanna says: ${ req.body.message }`; 
-    res.json( { message: response } ); 
-=======
-    // send some mail
     console.log( '[app ] in contact endpoint' ); 
     mailer.sendTestEmail();
     res.send( "cleared the endpoint" );
->>>>>>> mailbranch
 } );
 
 
