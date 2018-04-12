@@ -6,8 +6,6 @@ const { mailer } = require( './mailer' );
 const app = express();
 const port = 8080;
 
-
-
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,PATCH,DELETE,OPTIONS');
@@ -22,10 +20,10 @@ app.get( '/', ( req, res ) => {
 })
 
 app.post( '/contact', ( req, res ) => {
-    console.log( '[app ] in contact endpoint' ); 
-    mailer.sendTestEmail();
-    res.send( "cleared the endpoint" );
-} );
+    console.log( '[app ] in contact endpoint with the request: ', req.body ); 
+  mailer.sendTestEmail( req.body );
+  res.send( "cleared the endpoint" );
+} ); 
 
 
 app.listen(port, function(req, res){
