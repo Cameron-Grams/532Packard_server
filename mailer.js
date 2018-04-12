@@ -13,17 +13,13 @@ let transporter = nodemailer.createTransport({
 // send some mail
 const mailer = {
     sendTestEmail: ( messageObject ) => transporter.sendMail({
-    from: 'cameron.grams.2@gmail.com',
-    to: '532Packard@gmail.com',
+    from: '532Packard@gmail.com',
+    to: [ '532Packard@gmail.com', 'cameron.grams.2@gmail.com' ],
     subject: `New Message from ${ messageObject.name }`,
-    text: `${ messageObject.name }\n
-           from email ${ messageObject.email } \n
-           sent the following message: \n
-            ${ messageObject.message }`,
-    html: `<h3>${ messageObject.name}</h3>
-           <p>from ${ messageObject.email }</p>
-           <p>sent the following message: </p>
-           <p>${ messageObject.message }</p>`
+    html: `<h1>${ messageObject.name}</h1>
+           <h2>from ${ messageObject.email }</h2>
+           <h3>sent the following message: </h3>
+           <h3>${ messageObject.message }</h3>`
     }, ( err, info ) => {
         console.log( "Information from response ", info.envelope );
         console.log( "Error from response: ", err );

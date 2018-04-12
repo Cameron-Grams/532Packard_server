@@ -15,12 +15,7 @@ app.use(function (req, res, next) {
 
 app.use( bodyParser.json() ); 
 
-app.get( '/', ( req, res ) => {
-    res.json( { message: "Successful return" } ); 
-})
-
 app.post( '/contact', ( req, res ) => {
-    console.log( '[app ] in contact endpoint with the request: ', req.body ); 
   mailer.sendTestEmail( req.body );
   res.send( "cleared the endpoint" );
 } ); 
