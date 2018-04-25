@@ -14,8 +14,8 @@ let transporter = nodemailer.createTransport({
 const mailer = {
     sendTestEmail: ( messageObject ) => transporter.sendMail({
     from: '532Packard@gmail.com',
-    to: [ '532Packard@gmail.com', 'cameron.grams.2@gmail.com' ],
-    subject: `New Message from ${ messageObject.name }`,
+    to: [ '532Packard@gmail.com', 'wlgrams@aol.com'],
+    subject: `532 PACKARD EMAIL: New Message from ${ messageObject.name }`,
     html: `<h1>${ messageObject.name}</h1>
            <h2>from ${ messageObject.email }</h2>
            <h3>sent the following message: </h3>
